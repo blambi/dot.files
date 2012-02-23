@@ -1,1 +1,32 @@
-/home/patrik/.gitconfig
+[user]
+	name = Patrik Lembke
+	email = patrik.lembke@nodeone.se
+
+[alias]
+        ci = commit
+        st = status
+        up = pull
+        co = checkout
+        diff-nw = diff --ignore-space-at-eol
+        hist = log --pretty=format:\"%h %ad | %an: %s%d \" --graph --date=short
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
