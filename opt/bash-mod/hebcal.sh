@@ -1,0 +1,1 @@
+export HEBCAL_OPTS="-l 57,42 -L -11,58 -ea -Z eu -z +1"
