@@ -3,6 +3,7 @@ export HISTCONTROL="ignoredups"
 alias rmb="rm -v *\~"
 alias ls="ls --color=auto"
 alias findbackups="find ./ -name '*~'"
+alias makedistro="drush make --no-core --contrib-destination=. --working-copy"
 
 if [ -d "$HOME/opt/bin" ]; then
     PATH=$PATH:$HOME/opt/bin
