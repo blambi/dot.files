@@ -7,6 +7,10 @@ function infected() {
         git st
     fi
     popd > /dev/null
+
+    if [ -e ~/.bash_aliases ]; then
+        echo "WARNING: We have a bash alias file.."
+    fi
 }
 
 infected
