@@ -7,21 +7,22 @@ function bash-mod()
 {
     case $1 in
         toggle)
-            mod="$HOME/opt/bash-mod/$1.sh"
+            mod="$HOME/opt/bash-mod/$2.sh"
 
             if [ ! -f $mod ]; then
                 echo "ehm no such mod!"
                 return
             fi
-            
+
             if [ -x $mod ]; then
-                echo "Disabling $1"
+                echo "Disabling $2"
                 chmod -x $mod
             else
-                echo "Enabling $1"
+                echo "Enabling $2"
                 chmod +x $mod
+                source $mod
             fi
-            ;;          
+            ;;
         reload)
             echo "Reloading..."
             for mod in $HOME/opt/bash-mod/*.sh; do
@@ -33,7 +34,7 @@ function bash-mod()
             ;;
         ls) # LS!
             echo "Enabled bash-mods:"
-    
+
             for mod in $HOME/opt/bash-mod/*.sh; do
                 if [ -x "$mod" ]; then
                     echo $( basename $mod )
@@ -42,7 +43,7 @@ function bash-mod()
 
             echo
             echo "Disabled:"
-            
+
             for mod in $HOME/opt/bash-mod/*.sh; do
                 if [ ! -x "$mod" ]; then
                     echo $( basename $mod )

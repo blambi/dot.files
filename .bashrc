@@ -25,6 +25,12 @@ for mod in $HOME/opt/bash-mod/*.sh; do
     fi
 done
 
+# simple function to see if something is in our $PATH
+function in_PATH() {
+    echo $PATH | grep $1 > /dev/null
+    return $?
+}
+
 if [ $USER != "root" ]; then
     PS1="\[\033[35m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 else
