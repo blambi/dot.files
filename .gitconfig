@@ -1,15 +1,15 @@
 [user]
-	name = Avraham Lembke
-	email = blambi@chebab.com
+  name = Avraham Lembke
+  email = blambi@chebab.com
 
 [alias]
-        ci = commit
-        st = status
-        up = pull
-        co = checkout
-        diff-nw = diff --ignore-space-at-eol
-        hist = log --pretty=format:\"%h %ad | %an: %s%d \" --graph --date=short
-        uncommit = reset --soft HEAD^
+  ci = commit
+  st = status
+  up = pull
+  co = checkout
+  diff-nw = diff --ignore-space-at-eol
+  hist = log --pretty=format:\"%h %ad | %an: %s%d \" --graph --date=short
+  uncommit = reset --soft HEAD^
 
 [color]
   branch = auto
@@ -31,3 +31,6 @@
   added = yellow
   changed = green
   untracked = cyan
+
+[push]
+  default = simple
