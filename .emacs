@@ -5,6 +5,8 @@
 (global-hl-line-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+(set-face-attribute 'default nil :font  "DejaVu Sans Mono-9" )
+(set-frame-font "DejaVu Sans Mono-9" nil t)
 
 ;; Bindings
 (global-set-key "\C-cg" 'goto-line) ;; Hoppa till rad.
@@ -42,6 +44,14 @@
        (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
        (require 'zeal-at-point)
        (global-set-key "\C-cd" 'zeal-at-point)
+       (setq load-path (cons (expand-file-name "~/elisp/rails-reloaded") load-path))
+       (require 'rails-autoload)
+       (require 'flymake-ruby)
+       (add-hook 'ruby-mode-hook 'flymake-ruby-load)
+       (add-to-list 'load-path "~/elisp/jshint-mode")
+       (require 'flymake-jshint)
+       (add-hook 'javascript-mode-hook
+                 (lambda () (flymake-mode t)))
        ))
 
 ;; Varibles
@@ -52,7 +62,7 @@
 ;(c-set-offset 'substatement-open 0)
 (setq-default indent-tabs-mode nil)
 (c-set-offset 'case-label '+)
-
+;(setq grep-find-command '("git grep " . 9))
 ;; others
 (add-to-list 'load-path "/home/blambi/elisp/")
 (load-file "~/elisp/private.el")
@@ -65,6 +75,11 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
+;; Packages
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 ;; irc 
 (defun irc ()
   "Connect to IRC."  
@@ -72,7 +87,8 @@
   (if (yes-or-no-p "have you prepared ssl: ")
       (progn
         (erc-select :server "localhost" :port 6667 :password freenode-passwd)
-        (erc-select :server "localhost" :port 6668 :password mythos-passwd))))
+        (erc-select :server "localhost" :port 6668 :password mythos-passwd)
+        (erc-select :server "irc.macode.se" :port 6776))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -81,6 +97,8 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (wombat)))
+ '(grep-find-command (quote ("git grep " . 9)))
+ '(jshint-mode-node-program "nodejs")
  '(menu-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
