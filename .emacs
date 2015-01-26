@@ -7,6 +7,7 @@
 (tool-bar-mode -1)
 (set-face-attribute 'default nil :font  "DejaVu Sans Mono-9" )
 (set-frame-font "DejaVu Sans Mono-9" nil t)
+(server-start)
 
 ;; Bindings
 (global-set-key "\C-cg" 'goto-line) ;; Hoppa till rad.
@@ -80,15 +81,31 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-;; irc 
+
+;; circe
+(add-to-list 'load-path "~/elisp/circe/lisp")
+(require 'circe)
+(require 'circe-color-nicks)
+(enable-circe-color-nicks)
+
+(autoload 'enable-circe-notifications "circe-notifications" nil t)
+
+(eval-after-load "circe-notifications"
+  '(setq setq circe-notifications-watch-nicks
+      '("@everyone" "blambi")))
+
+(add-hook 'circe-server-connected-hook 'enable-circe-notifications)
+
+(setq circe-server-killed-confirmation 'ask-and-kill-all)
+(setq circe-reduce-lurker-spam t)
+(setq lui-max-buffer-size 30000)
+
 (defun irc ()
-  "Connect to IRC."  
+  "Connect to IRC."
   (interactive)
-  (if (yes-or-no-p "have you prepared ssl: ")
-      (progn
-        (erc-select :server "localhost" :port 6667 :password freenode-passwd)
-        (erc-select :server "localhost" :port 6668 :password mythos-passwd)
-        (erc-select :server "irc.macode.se" :port 6776))))
+  (circe "Freenode")
+  (circe "Mythos")
+  (circe "FootballAddicts"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
