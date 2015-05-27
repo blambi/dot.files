@@ -25,7 +25,7 @@
 ;; Hooks
 (add-hook 'python-mode-hook
           '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))(global-hl-line-mode 1)
-
+(add-hook 'after-init-hook 'global-company-mode)
 ;; Safety function stolen from smiler's .emacs
 (defun my-exit-from-emacs ()
   "My exit from Emacs"
@@ -82,30 +82,68 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-;; circe
-(add-to-list 'load-path "~/elisp/circe/lisp")
-(require 'circe)
-(require 'circe-color-nicks)
-(enable-circe-color-nicks)
+;; ERC
+(require 'erc)
+(if my-conf-own
+    (progn
+      (load "erc-extcmd")
+      (load "erc-pik")
+      (load "erc-bitlbee")
+      (require 'erc-highlight-nicknames)
+      (add-to-list 'erc-modules 'highlight-nicknames)
+      (autoload 'erc-nick-notify-mode "erc-nick-notify"
+        "Minor mode that calls `erc-nick-notify-cmd' when his nick gets mentioned in an erc channel" t)
+      (eval-after-load 'erc '(erc-nick-notify-mode t))
+      (setq erc-nick-notify-icon "/usr/share/gajim/icons/hicolor/32x32/categories/gajim-agent-irc.png")
+      (erc-update-modules)
+      ))
 
-(autoload 'enable-circe-notifications "circe-notifications" nil t)
+(eval-after-load "erc"
+  (progn
+    (set-face-foreground 'erc-input-face "DarkGrey")
+    (set-face-foreground 'erc-prompt-face "DarkSlateBlue")
+    ;(set-face-background 'erc-prompt-face "#08070D")
+    (set-face-foreground 'erc-notice-face "#403C4D") ; joins etc
+    ))
 
-(eval-after-load "circe-notifications"
-  '(setq setq circe-notifications-watch-nicks
-      '("@everyone" "blambi")))
+;;stuff to not show in modeline
+(setq track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
+                            "324" "329" "332" "333" "353" "477"))
 
-(add-hook 'circe-server-connected-hook 'enable-circe-notifications)
+(setq-default erc-nick "blambi"
+              erc-nick-uniquifier "-"
+              erc-user-full-name "Avraham Lembke"
+              erc-paranoid t
+              erc-auto-query t ;; msg -> own buffer
+              erc-prompt "-->")
 
-(setq circe-server-killed-confirmation 'ask-and-kill-all)
-(setq circe-reduce-lurker-spam t)
-(setq lui-max-buffer-size 30000)
+(setq erc-header-line-format "[%t %m] %o") ;; header
 
+;; change this to what you like.. default is 30,000
+;; (setq erc-max-buffer-size 30000)
+(setq erc-truncate-buffer-on-save t)
+
+(defvar erc-insert-post-hook)
+(add-hook 'erc-insert-post-hook
+          'erc-truncate-buffer)
+
+;; ERC
 (defun irc ()
   "Connect to IRC."
   (interactive)
-  (circe "Freenode")
-  (circe "Mythos")
-  (circe "FootballAddicts"))
+  (if (yes-or-no-p "have you prepared ssl: ")
+      (progn
+        (erc-tls :server "freenodeirc.macode.se" :port 7779 :password freenode-passwd)
+        (erc-tls :server "irc.macode.se" :port 7779 :password mythos-passwd)
+        (erc-tls :server "fairc.macode.se" :port 7779 :password fairc-passwd)
+
+        ;; problematic faces
+        (set-face-foreground 'erc-nick-default-face "Grey")
+        (set-face-foreground 'erc-current-nick-face "YellowGreen")
+        (set-face-foreground 'erc-timestamp-face "DimGrey")
+        (set-face-foreground 'erc-pal-face "medium orchid")
+        (set-face-foreground 'erc-keyword-face "medium orchid")
+        )))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
