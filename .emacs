@@ -24,7 +24,7 @@
 
 ;; Hooks
 (add-hook 'python-mode-hook
-          '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))(global-hl-line-mode 1)
+          '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))
 (add-hook 'after-init-hook 'global-company-mode)
 ;; Safety function stolen from smiler's .emacs
 (defun my-exit-from-emacs ()
@@ -67,6 +67,16 @@
 ;; others
 (add-to-list 'load-path "/home/blambi/elisp/")
 (load-file "~/elisp/private.el")
+
+;; Better looking hl-mode
+(set-face-background 'hl-line "#363636")
+(set-face-foreground 'highlight nil)
+(set-face-foreground 'hl-line nil)
+(set-face-underline 'hl-line nil)
+
+;; Transparency
+(set-frame-parameter (selected-frame) 'alpha '(96 96))
+(add-to-list 'default-frame-alist '(alpha 96 96))
 
 ;; Smooth-scrolling
 (setq scroll-margin 1
