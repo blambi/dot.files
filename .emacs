@@ -74,6 +74,9 @@
 (set-face-foreground 'hl-line nil)
 (set-face-underline 'hl-line nil)
 
+;; meta + up/down/left/right for window navigation.
+(windmove-default-keybindings 'meta)
+
 ;; Transparency
 (set-frame-parameter (selected-frame) 'alpha '(96 96))
 (add-to-list 'default-frame-alist '(alpha 96 96))
