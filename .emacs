@@ -69,12 +69,6 @@
 (add-to-list 'load-path "/home/blambi/elisp/")
 (load-file "~/elisp/private.el")
 
-;; Better looking hl-mode
-(set-face-background 'hl-line "#363636")
-(set-face-foreground 'highlight nil)
-(set-face-foreground 'hl-line nil)
-(set-face-underline 'hl-line nil)
-
 ;; meta + up/down/left/right for window navigation.
 (windmove-default-keybindings 'meta)
 
@@ -175,3 +169,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;; Better looking hl-mode
+(set-face-background 'hl-line "#363636")
+(set-face-foreground 'highlight nil)
+(set-face-foreground 'hl-line nil)
+(set-face-underline 'hl-line nil)
