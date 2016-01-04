@@ -162,7 +162,13 @@
  '(custom-enabled-themes (quote (wombat)))
  '(grep-find-command (quote ("git grep " . 9)))
  '(jshint-mode-node-program "nodejs")
- '(menu-bar-mode nil))
+ '(menu-bar-mode nil)
+ '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
+ '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
+
+;; create the autosave dir if necessary, since emacs won't.
+(make-directory "~/.emacs.d/autosaves/" t)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
