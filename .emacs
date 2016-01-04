@@ -43,6 +43,7 @@
        (load "d-mode")
        (load "web-mode")
        (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.md?\\'" . markdown-mode))
        (require 'zeal-at-point)
        (global-set-key "\C-cd" 'zeal-at-point)
        (setq load-path (cons (expand-file-name "~/elisp/rails-reloaded") load-path))
