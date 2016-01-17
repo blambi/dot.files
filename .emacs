@@ -84,6 +84,12 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
+;; vbell
+(set 'visible-bell nil)
+(set 'ring-bell-function (lambda ()
+     (invert-face 'mode-line)
+     (run-with-timer 0.1 nil 'invert-face 'mode-line)))
+
 ;; Packages
 (require 'package)
 (add-to-list 'package-archives
