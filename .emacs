@@ -102,6 +102,14 @@
 (require 'projectile)
 (projectile-global-mode)
 
+;; Orgmode customisation
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map [f2] '(lambda ()
+                               (interactive)
+                               (find-file "~/notes/todo.org")))
+(setq org-log-done t)
+
 ;; ERC
 (require 'erc)
 (if my-conf-own
