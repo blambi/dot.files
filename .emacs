@@ -92,8 +92,9 @@
 
 ;; Packages
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 (setq package-enable-at-startup nil) ;; Hack to make projectile load..
 (package-initialize)
 
@@ -153,8 +154,8 @@
   (if (yes-or-no-p "have you prepared ssl: ")
       (progn
         (erc-tls :server "freenodeirc.macode.se" :port 7779 :password freenode-passwd)
-        (erc-tls :server "irc.macode.se" :port 7779 :password mythos-passwd)
-        (erc-tls :server "fairc.macode.se" :port 7779 :password fairc-passwd)
+        ;(erc-tls :server "irc.macode.se" :port 7779 :password mythos-passwd)
+        ;(erc-tls :server "fairc.macode.se" :port 7779 :password fairc-passwd)
 
         ;; problematic faces
         (set-face-foreground 'erc-nick-default-face "Grey")
@@ -169,13 +170,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
+ '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (wombat)))
  '(grep-find-command (quote ("git grep " . 9)))
  '(jshint-mode-node-program "nodejs")
- '(menu-bar-mode nil)
- '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
- '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
+ '(menu-bar-mode nil))
 
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
