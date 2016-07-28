@@ -33,6 +33,11 @@
   (if (yes-or-no-p "Really quit Emacs? ")
       (save-buffers-kill-emacs)))
 
+;; Missing link..
+(defun insert-shell-command ()
+  (interactive)
+  (insert (shell-command-to-string (read-from-minibuffer "Command: "))))
+
 ;; Custom modules
 (setq my-conf-own (file-directory-p "~/elisp/")) ;; do we have our own elisps?
 (if my-conf-own
