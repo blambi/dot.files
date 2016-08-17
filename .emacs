@@ -5,8 +5,8 @@
 (global-hl-line-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(set-face-attribute 'default nil :font  "DejaVu Sans Mono-9" )
-(set-frame-font "DejaVu Sans Mono-9" nil t)
+;(set-face-attribute 'default nil :font  "DejaVu Sans Mono-9" )
+;(set-frame-font "DejaVu Sans Mono-9" nil t)
 (server-start)
 
 ;; Bindings
@@ -44,8 +44,8 @@
        (load "web-mode")
        (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
        (add-to-list 'auto-mode-alist '("\\.md?\\'" . markdown-mode))
-       (require 'zeal-at-point)
-       (global-set-key "\C-cd" 'zeal-at-point)
+       ;;(require 'zeal-at-point)
+       ;;(global-set-key "\C-cd" 'zeal-at-point)
        ;;(setq load-path (cons (expand-file-name "~/elisp/rails-reloaded") load-path))
        ;;(require 'rails-autoload)
        (require 'flymake-ruby)
@@ -65,6 +65,9 @@
 (setq-default indent-tabs-mode nil)
 (c-set-offset 'case-label '+)
 ;(setq grep-find-command '("git grep " . 9))
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "/home/avraham/opt/bin/browser.sh"
+      browse-url-generic-args '(""))
 ;; others
 (add-to-list 'load-path "/home/blambi/elisp/")
 (load-file "~/elisp/private.el")
@@ -92,8 +95,8 @@
 
 ;; Packages
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (setq package-enable-at-startup nil) ;; Hack to make projectile load..
 (package-initialize)
 
@@ -153,8 +156,7 @@
   (if (yes-or-no-p "have you prepared ssl: ")
       (progn
         (erc-tls :server "freenodeirc.macode.se" :port 7779 :password freenode-passwd)
-        (erc-tls :server "irc.macode.se" :port 7779 :password mythos-passwd)
-        (erc-tls :server "fairc.macode.se" :port 7779 :password fairc-passwd)
+        ;(erc-tls :server "irc.macode.se" :port 7779 :password mythos-passwd)
 
         ;; problematic faces
         (set-face-foreground 'erc-nick-default-face "Grey")
@@ -169,13 +171,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
+ '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
  '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes (quote (grandshell)))
+ '(custom-safe-themes
+   (quote
+    ("9ff70d8009ce8da6fa204e803022f8160c700503b6029a8d8880a7a78c5ff2e5" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "0371ea3962f89505580bb2f346f96decfd7c2147e0ee6811951b1239d2ebddcc" "f0d8af755039aa25cd0792ace9002ba885fd14ac8e8807388ab00ec84c9497d7" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default)))
+ '(fci-rule-color "#151515")
  '(grep-find-command (quote ("git grep " . 9)))
  '(jshint-mode-node-program "nodejs")
- '(menu-bar-mode nil)
- '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
- '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
+ '(menu-bar-mode nil))
 
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
@@ -185,11 +191,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "#0b0b0b" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "misc" :family "fixed")))))
 
 
 ;; Better looking hl-mode
-(set-face-background 'hl-line "#363636")
+(set-face-background 'hl-line "#0D0D0D")
 (set-face-foreground 'highlight nil)
 (set-face-foreground 'hl-line nil)
 (set-face-underline 'hl-line nil)
