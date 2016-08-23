@@ -21,6 +21,7 @@
 (global-set-key "\C-cq" 'word-count-region) ;; Reverse the region
 (global-set-key [f5] 'recompile) ;; Doing this quite a lot now days..
 (global-set-key [f6] 'whitespace-cleanup) ;; Doing this quite a lot now days..
+(global-set-key [f10] 'magit-status) ;; -""-
 
 ;; Hooks
 (add-hook 'python-mode-hook
