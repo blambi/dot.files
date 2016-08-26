@@ -21,6 +21,7 @@
 (global-set-key "\C-cq" 'word-count-region) ;; Reverse the region
 (global-set-key [f5] 'recompile) ;; Doing this quite a lot now days..
 (global-set-key [f6] 'whitespace-cleanup) ;; Doing this quite a lot now days..
+(global-set-key [f10] 'magit-status) ;; -""-
 
 ;; Hooks
 (add-hook 'python-mode-hook
@@ -33,6 +34,11 @@
   (if (yes-or-no-p "Really quit Emacs? ")
       (save-buffers-kill-emacs)))
 
+;; Missing link..
+(defun insert-shell-command ()
+  (interactive)
+  (insert (shell-command-to-string (read-from-minibuffer "Command: "))))
+
 ;; Custom modules
 (setq my-conf-own (file-directory-p "~/elisp/")) ;; do we have our own elisps?
 (if my-conf-own
@@ -44,12 +50,6 @@
        (load "web-mode")
        (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
        (add-to-list 'auto-mode-alist '("\\.md?\\'" . markdown-mode))
-       ;;(require 'zeal-at-point)
-       ;;(global-set-key "\C-cd" 'zeal-at-point)
-       ;;(setq load-path (cons (expand-file-name "~/elisp/rails-reloaded") load-path))
-       ;;(require 'rails-autoload)
-       (require 'flymake-ruby)
-       (add-hook 'ruby-mode-hook 'flymake-ruby-load)
        (add-to-list 'load-path "~/elisp/jshint-mode")
        (require 'flymake-jshint)
        (add-hook 'javascript-mode-hook
