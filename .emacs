@@ -208,6 +208,7 @@
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (wombat)))
  '(grep-find-command (quote ("git grep " . 9)))
+ '(js-indent-level 2)
  '(jshint-mode-node-program "nodejs")
  '(menu-bar-mode nil))
 
