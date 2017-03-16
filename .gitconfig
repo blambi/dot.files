@@ -1,6 +1,7 @@
 [user]
   name = Avraham Lembke
   email = blambi@chebab.com
+  signingkey = EFCB9EC4CCD18166
 
 [alias]
   ci = commit
@@ -37,3 +38,5 @@
 
 [pull]
   rebase = preserve
+[commit]
+  gpgsign = true
