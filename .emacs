@@ -116,25 +116,6 @@
                                (find-file "~/notes/todo.org")))
 (setq org-log-done t)
 
-;; Git gutters
-(require 'git-gutter-fringe)
-(add-hook 'prog-mode-hook 'git-gutter-mode)
-(define-fringe-bitmap 'git-gutter-fr:added
-  [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-  nil nil 'center)
-(define-fringe-bitmap 'git-gutter-fr:modified
-  [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-  nil nil 'center)
-(define-fringe-bitmap 'git-gutter-fr:deleted
-  [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
-  nil nil 'center)
-(set-face-foreground 'git-gutter-fr:modified "#8ac6f2")
-(set-face-foreground 'git-gutter-fr:added    "#95e454")
-(set-face-foreground 'git-gutter-fr:deleted  "#e5786d")
-(set-face-background 'git-gutter-fr:modified "#303030")
-(set-face-background 'git-gutter-fr:added "#303030")
-(set-face-background 'git-gutter-fr:deleted "#303030")
-
 ;; ERC
 (require 'erc)
 (if my-conf-own
