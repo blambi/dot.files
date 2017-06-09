@@ -171,13 +171,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#151515" "#953331" "#546a29" "#909737" "#385e6b" "#7f355e" "#34676f" "#c6a57b"])
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
  '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (grandshell)))
+ '(custom-enabled-themes (quote (misterioso)))
  '(custom-safe-themes
    (quote
-    ("9ff70d8009ce8da6fa204e803022f8160c700503b6029a8d8880a7a78c5ff2e5" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "0371ea3962f89505580bb2f346f96decfd7c2147e0ee6811951b1239d2ebddcc" "f0d8af755039aa25cd0792ace9002ba885fd14ac8e8807388ab00ec84c9497d7" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default)))
+    ("3966ac0df372cd51dfbde8f5d0cbad461ef178aa20bb7101ef437ab3fe8cbf19" "9ff70d8009ce8da6fa204e803022f8160c700503b6029a8d8880a7a78c5ff2e5" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "0371ea3962f89505580bb2f346f96decfd7c2147e0ee6811951b1239d2ebddcc" "f0d8af755039aa25cd0792ace9002ba885fd14ac8e8807388ab00ec84c9497d7" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default)))
  '(fci-rule-color "#151515")
  '(grep-find-command (quote ("git grep " . 9)))
  '(jshint-mode-node-program "nodejs")
@@ -191,11 +193,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#0b0b0b" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "misc" :family "fixed")))))
-
+ '(default ((t (:inherit nil :stipple nil :background "#0b0b0b" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "misc" :family "fixed"))))
+ '(erc-header-line ((t (:background "grey20" :foreground "grey90"))))
+ '(hl-line ((t (:background "#141414" :underline nil))))
+ '(mode-line-inactive ((t (:background "#13171C" :foreground "#eeeeec")))))
 
 ;; Better looking hl-mode
-(set-face-background 'hl-line "#0D0D0D")
-(set-face-foreground 'highlight nil)
-(set-face-foreground 'hl-line nil)
-(set-face-underline 'hl-line nil)
+;(set-face-background 'hl-line "#141414")
+;(set-face-foreground 'highlight nil)
+;(set-face-foreground 'hl-line nil)
+;(set-face-underline 'hl-line nil)
