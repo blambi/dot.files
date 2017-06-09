@@ -179,6 +179,9 @@
         (set-face-foreground 'erc-keyword-face "medium orchid")
         )))
 
+;; Alchemist stuff
+(setq alchemist-mix-test-default-options '("--no-start")) ;; default
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
