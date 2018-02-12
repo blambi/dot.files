@@ -155,7 +155,8 @@
   (interactive)
   (if (yes-or-no-p "have you prepared ssl: ")
       (progn
-        (erc-tls :server "freenodeirc.macode.se" :port 7779 :password freenode-passwd)
+        ;(erc-tls :server "irc.macode.se" :port 7779 :password freenode-passwd)
+        (erc :server "localhost" :port 6667 :password freenode-passwd)
         ;(erc-tls :server "irc.macode.se" :port 7779 :password mythos-passwd)
 
         ;; problematic faces
