@@ -1,0 +1,49 @@
+#!/bin/sh
+
+xset m 20/10 4
+xrdb /home/avraham/.Xdefaults
+sxhkd &
+xsetroot -cursor_name left_ptr
+
+bspc monitor -d Main Web Games Misc
+
+bspc config border_width 2
+bspc config window_gap 5
+
+bspc config active_border_color  \#202019
+bspc config normal_border_color  \#202019
+bspc config focused_border_color \#202019
+
+bspc config split_ratio           0.52
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config focus_follows_pointer true
+
+
+bspc rule -a Emacs state=tiled desktop='^1'
+bspc rule -a Google-chrome desktop='^2'
+bspc rule -a Claws-mail desktop='^2'
+bspc rule -a Steam desktop='^3'
+
+feh --bg-fill ~/bilder/backgrounds/tzeenchian_spawn.jpg
+
+if [ "$1" != "restart" ]; then
+    pulseaudio -D &
+    dunst &
+    tint2 &
+    pasystray &
+    gxkb &
+    #conky -d &
+    xautolock -time 10 -locker "$HOME/opt/bin/xlock.sh" &
+    compton -f -D 5 -b &
+
+    # Restore "Session"
+    xfce4-terminal &
+    emacs &
+    google-chrome &
+    claws-mail &
+    steam &
+fi
+
+# Fix? being in ~/.config for some reason
+cd $HOME
