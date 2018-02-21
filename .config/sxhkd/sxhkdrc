@@ -17,6 +17,12 @@ XF86AudioMute
 XF86HomePage
     mpc next
 
+# Screenshot
+Print
+    scrot
+
+shift + Print
+    scrot -u
 
 shift + XF86HomePage
     mpc prev
