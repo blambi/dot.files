@@ -25,7 +25,7 @@ bspc rule -a Google-chrome desktop='^2'
 bspc rule -a Claws-mail desktop='^2'
 bspc rule -a Steam desktop='^3'
 
-feh --bg-fill ~/bilder/backgrounds/tzeenchian_spawn.jpg
+feh --bg-fill ~/.background # Seems to figure out the format
 
 if [ "$1" != "restart" ]; then
     pulseaudio -D &
