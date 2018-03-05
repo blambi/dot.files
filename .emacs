@@ -204,6 +204,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-scrollbar-bg ((t (:background "#444"))))
+ '(company-scrollbar-fg ((t (:background "#5E5E5E"))))
+ '(company-tooltip ((t (:background "#444" :foreground "#857b6f"))))
+ '(company-tooltip-annotation ((t (:foreground "#92a65e"))))
+ '(company-tooltip-common ((t (:foreground "#8ac6f2"))))
+ '(company-tooltip-common-selection ((t (:foreground "#8ac6f2"))))
+ '(company-tooltip-selection ((t (:background "#5E5E5E" :foreground "#f6f3e8"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "rosy brown"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "light goldenrod"))))
