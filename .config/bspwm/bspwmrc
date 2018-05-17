@@ -7,12 +7,13 @@ xsetroot -cursor_name left_ptr
 
 bspc monitor -d Main Web Games Misc
 
-bspc config border_width 2
-bspc config window_gap 5
+bspc config border_width 4 # 2
+bspc config window_gap 7 # 5
 
-bspc config active_border_color  \#202019
-bspc config normal_border_color  \#202019
-bspc config focused_border_color \#202019
+# Was 202019
+bspc config active_border_color  \#2A2630
+bspc config normal_border_color  \#1C1920
+bspc config focused_border_color \#2A2630
 
 bspc config split_ratio           0.52
 bspc config borderless_monocle    true

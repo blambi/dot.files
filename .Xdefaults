@@ -1,0 +1,61 @@
+! Rxvt
+Rxvt.background: #000000
+Rxvt.foreground: #00CC00
+Rxvt.color0:   #000000
+Rxvt.color1:   #A80000
+Rxvt.color2:   #BEBEBE
+Rxvt.color3:   #A8A800
+Rxvt.color4:   #4b4bd1
+Rxvt.color5:   #A800A8
+Rxvt.color6:   #00A8A8
+Rxvt.color7:   #e5e5e5
+Rxvt.color8:   #0000A4
+Rxvt.color9:   #B30000
+Rxvt.color10:  #00FF00
+Rxvt.color11:  #FFFF54
+Rxvt.color12:  #5c5cff
+Rxvt.color13:  #FF00FF
+Rxvt.color14:  #00FFFF
+Rxvt.color15:  #FFFFFF
+Rxvt.font*:    -*-fixed-*-r-normal-*-10-*-*-*-*-*
+Rxvt.scrollBar: 0
+
+! Emacs
+Emacs.Font:    -*-fixed-*-r-normal-*-10-*-*-*-*-*
+Xcursor.theme: /usr/share/cursors/xorg-x11/neutral/
+
+! XTerm - Färger
+XTerm*foreground: #00CC00
+XTerm*background: #0f0f0f
+XTerm*color0:   #0f0f0f
+XTerm*color1:   #A80000
+XTerm*color2:   #BEBEBE
+XTerm*color3:   #A8A800
+XTerm*color4:   #4b4bd1
+XTerm*color5:   #A800A8
+XTerm*color6:   #00A8A8
+XTerm*color7:   #e5e5e5
+XTerm*color8:   #0000A4
+XTerm*color9:   #B30000
+XTerm*color10:  #00FF00
+XTerm*color11:  #FFFF54
+XTerm*color12:  #5c5cff
+XTerm*color13:  #FF00FF
+XTerm*color14:  #00FFFF
+XTerm*color15:  #FFFFFF
+
+! XTerm - compat
+XTerm*boldColors: true
+XTerm*colorBDMode: true
+XTerm*colorULMode: true
+XTerm*metaSendsEscape: true
+XTerm.*.backarrowKey: false
+
+! Rofi menu
+rofi.color-enabled: true
+rofi.color-window: #383c4a, #2b2e39, #2b2e39
+rofi.color-normal: #383c4a, #cfd6df, #383c4a, #4084d6, #cfd6df
+rofi.color-active: #404552, #4084d6, #404552, #4084d6, #cfd6df
+rofi.color-urgent: #404552, #dc322f, #4084d6, #dc322f, #cfd6df
+rofi.font: Fixed 9
+!Noto Sans 10
