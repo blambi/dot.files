@@ -4,10 +4,10 @@
 
 ## Volume up/down
 XF86AudioRaiseVolume
-    amixer set Master 5%+ unmute
+    ~/opt/bin/volume.sh up
 
 XF86AudioLowerVolume
-    amixer set Master 5%- unmute
+    ~/opt/bin/volume.sh down
 
 # MPD toggle
 XF86AudioMute
@@ -19,10 +19,10 @@ XF86HomePage
 
 # Screenshot
 Print
-    scrot
+    scrot -e 'notify-send -u Screenshot "Saved as $f"'
 
 shift + Print
-    scrot -u
+    scrot -u -e 'notify-send -u Screenshot "Saved as $f"'
 
 shift + XF86HomePage
     mpc prev
